@@ -1,58 +1,62 @@
 package br.com.isidrocorp.eventdash.model;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import java.util.Date;
-
-
 
 
 @Entity                           
 @Table(name="itmn_evento")       
 public class Evento {
-
-	@Column(name="num_seq")                              
+                       
 	@Id                                                      
-	@GeneratedValue(strategy=GenerationType.IDENTITY)       
-	private int num_seq;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)   
+	@Column(name="num_seq")   
+	private int numSeq;
 	
-	@Column(name="data_evt", nullable=true)  
-	private Date data_evt;
+	@Column(name="data_evt")  
+	private LocalDate dataEvento;
 	
-	@Column(name="id_alarme", nullable=false)  
-	private int id_alarme;
+	@ManyToOne
+	@JoinColumn(name = "id_alarme")
+	private Alarme alarme;
 	
-	@Column(name="id_equip", nullable=false)  
-	private int id_equip;
+	@ManyToOne
+	@JoinColumn(name = "id_equip")
+	private Equipamento equipamento;
 
-	public int getNum_seq() {
-		return num_seq;
+	public int getNumSeq() {
+		return numSeq;
 	}
-	public void setNum_seq(int num_seq) {
-		this.num_seq = num_seq;
+	public void setNumSeq(int numSeq) {
+		this.numSeq = numSeq;
 	}
-	public Date getData_evt() {
-		return data_evt;
+	public LocalDate getDataEvento() {
+		return dataEvento;
 	}
-	public void setData_evt(Date data_evt) {
-		this.data_evt = data_evt;
+	public void setDataEvento(LocalDate dataEvento) {
+		this.dataEvento = dataEvento;
 	}
-	public int getId_alarme() {
-		return id_alarme;
+	public Alarme getAlarme() {
+		return alarme;
 	}
-	public void setId_alarme(int id_alarme) {
-		this.id_alarme = id_alarme;
+	public void setAlarme(Alarme alarme) {
+		this.alarme = alarme;
 	}
-	public int getId_equip() {
-		return id_equip;
+	public Equipamento getEquipamento() {
+		return equipamento;
 	}
-	public void setId_equip(int id_equip) {
-		this.id_equip = id_equip;
+	public void setEquipamento(Equipamento equipamento) {
+		this.equipamento = equipamento;
 	}
+	
 	
 	
 	

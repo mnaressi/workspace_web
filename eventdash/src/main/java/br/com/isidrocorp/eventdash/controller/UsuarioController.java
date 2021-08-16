@@ -1,6 +1,7 @@
 package br.com.isidrocorp.eventdash.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,13 +18,17 @@ public class UsuarioController {
 	
 	//Metodo de Login - para issopreciso enviar alguma informação para o backEnd
 	
-	
-	
+
 	@PostMapping("/login")
-	public Usuario fazerLogin (@RequestBody Usuario dadosLogin) {
+	public ResponseEntity<Usuario> fazerLogin (@RequestBody Usuario dadosLogin) {
 		
 		Usuario res = dao.findByEmailOrRacf(dadosLogin.getEmail(), dadosLogin.getRacf());
-		return res;
+		if (res !=null) { //encontrou o obj no banco
+			if (res.getSenha().equals(dadosLogin.getSenha())) { //verifico se a senha bate
+				return ResponseEntity.ok(res);
+			}
+		}
+		return ResponseEntity.status(403).build();
 		
 	}
 }

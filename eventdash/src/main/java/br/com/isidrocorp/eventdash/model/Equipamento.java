@@ -16,7 +16,7 @@ public class Equipamento {
 	@Column(name="id_equip")                               
 	@Id                                                    
 	@GeneratedValue(strategy=GenerationType.IDENTITY)        
-	private int id_equip;
+	private int id;
 	
 	@Column(name="hostname", length=50, nullable=false)  
 	private String hostname;
@@ -24,11 +24,11 @@ public class Equipamento {
 	@Column(name="ipaddr", length=15, nullable=true)  
 	private String ipaddr;
 
-	public int getId_equip() {
-		return id_equip;
+	public int getId() {
+		return id;
 	}
-	public void setId_equip(int id_equip) {
-		this.id_equip = id_equip;
+	public void setId(int id) {
+		this.id = id;
 	}
 	public String getHostname() {
 		return hostname;
