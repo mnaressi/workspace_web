@@ -1,9 +1,8 @@
 package br.com.isidrocorp.eventdash.controller;
 
-import java.util.ArrayList;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.isidrocorp.eventdash.dao.UsuarioDAO;
@@ -16,17 +15,15 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioDAO dao;
 	
+	//Metodo de Login - para issopreciso enviar alguma informação para o backEnd
 	
 	
-	@GetMapping("/usuarios")
-	public ArrayList<Usuario> recuperarTodos(){
-		
 	
+	@PostMapping("/login")
+	public Usuario fazerLogin (@RequestBody Usuario dadosLogin) {
 		
-		ArrayList<Usuario> lista;
-		lista = (ArrayList<Usuario>)dao.findAll();
-		return lista;
-		
+		Usuario res = dao.findByEmailOrRacf(dadosLogin.getEmail(), dadosLogin.getRacf());
+		return res;
 		
 	}
 }
