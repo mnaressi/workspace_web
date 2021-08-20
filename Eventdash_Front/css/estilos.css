@@ -1,0 +1,40 @@
+  /*criando um estilo0 de título
+    /*criando biblioteca de css para comandos nativos em HTML
+     h1{
+        font-size: 26px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+     }
+    p{
+        font-size: 12px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+       /*criando biblioteca de css para classes 
+    .paragrafo_especial{
+        font-size: 10px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color:gray;
+    }
+    .menu{
+        font-size: 18px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: bolder;
+        color: blue;
+    } 
+    form{
+        font-size: 12px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    } */
+
+    /*ESTILOS DE CORES PARA A PAGINA EM BOOTSTRAP*/
+
+   /* .container-fluid{
+        border: 1px solid black;
+    }*/
+
+    .div1{
+        border: 1px solid black;
+    }
+
+    .div3{
+        border: 1px solid black;
+    }

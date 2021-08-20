@@ -7,5 +7,6 @@ import br.com.isidrocorp.eventdash.model.Alarme;
 public interface AlarmeDAO extends CrudRepository<Alarme, Integer>{
 	
 	//possíveis consultas customizadas
-
+	
+		
 }
